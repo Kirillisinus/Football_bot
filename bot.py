@@ -1,7 +1,8 @@
 from collections import defaultdict
 import telebot
 # Создаем экземпляр бота
-bot = telebot.TeleBot('5732654013:AAEs3Ke5uPUMiZBUk03DitDVVmteGiVENEE')
+TOKEN="5732654013:AAEs3Ke5uPUMiZBUk03DitDVVmteGiVENEE"
+bot = telebot.TeleBot(TOKEN)
 user_scores = defaultdict(list)
 user_REGby_messages = defaultdict(list)
 userNames = defaultdict(list)
@@ -12,7 +13,7 @@ score = 1000
 # Функция, обрабатывающая команду /start
 @bot.message_handler(commands=["start"])
 def start(message, res=False):
-    bot.send_message(message.chat.id, 'Я - бот для подсчета вашего футбольного рейтинга среди пидоров \nЯ знаю всего несколько команд:\n /reg - регистрация на игру\n /win - добавление очков после победы\n /lose - снятие очков после поражения\n /allstats - общая статистика\n /mystat - общая статистика')
+    bot.send_message(message.chat.id, 'Я - бот для подсчета вашего футбольного рейтинга \nЯ знаю всего несколько команд:\n /reg - регистрация на игру\n /win - добавление очков после победы\n /lose - снятие очков после поражения\n /allstats - общая статистика\n /mystat - твоя статистика')
 # Получение сообщений от юзера
 @bot.message_handler(content_types=["text"])
 def handle_text(message):
